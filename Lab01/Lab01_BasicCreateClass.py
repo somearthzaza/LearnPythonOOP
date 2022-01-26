@@ -22,7 +22,7 @@ class EmployeeService:
     pass
 
 
-class division:
+class Department:
     pass
 
 
@@ -83,10 +83,10 @@ class EmployeeService:
         self.is_free = is_free
 
 
-class divition:
-    def __init__(self, divition_name, divition_id):
-        self.divition_name = divition_name
-        self.divition_id = divition_id
+class Department:
+    def __init__(self, department_id, department_name):
+        self.department_id = department_id
+        self.department_name = department_name
 
 
 # หลักการค้นหา ดูจาก Noun ในโจทย์ หรือ หาสิ่งที่เป็น คน สั่ตว์ สิ่งของ ที่จับต้องได้
@@ -117,8 +117,8 @@ Gwen = Employee("6406042", "Gwen Tennison", 31)
 benjamin = EmployeeService("6406044", "benjamin mondy", 20, True)
 benjamon = EmployeeService("6406043", "menjamon mendy", 22, True)
 
-divition01 = divition("markting", "1001")
-divition02 = divition("research and development", "2002")
+dep01 = Department("markting", "1001")
+dep02 = Department("research and development", "2002")
 
 
 print(dell_00001.spec)
@@ -139,5 +139,6 @@ BenTen.id = "6406050"
 print(benjamon.name)
 benjamon.is_free = False
 
-print(divition01.divition_name)
-divition01.divition_id = "1002"
+print(dep01.department_id)
+dep01.divition_id = "1002"
+print(dep01.department_name)
