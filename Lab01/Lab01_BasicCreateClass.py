@@ -117,8 +117,8 @@ Gwen = Employee("6406042", "Gwen Tennison", 31)
 benjamin = EmployeeService("6406044", "benjamin mondy", 20, True)
 benjamon = EmployeeService("6406043", "menjamon mendy", 22, True)
 
-dep01 = Department("markting", "1001")
-dep02 = Department("research and development", "2002")
+dep01 = Department("1001", "markting")
+dep02 = Department("2002", "research and development")
 
 
 print(dell_00001.spec)
@@ -140,5 +140,5 @@ print(benjamon.name)
 benjamon.is_free = False
 
 print(dep01.department_id)
-dep01.divition_id = "1002"
-print(dep01.department_name)
+dep01.department_id = "1002"
+print(dep01.department_id)
