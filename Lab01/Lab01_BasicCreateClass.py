@@ -1,3 +1,7 @@
+class Device:
+    pass
+
+
 class Computer:
     pass
 
@@ -24,6 +28,13 @@ class EmployeeService:
 
 class Department:
     pass
+
+
+class Device:
+
+    def __init__(self, color, type):
+        self.color = color
+        self.type = type
 
 
 class Computer:
@@ -91,12 +102,15 @@ class Department:
 
 # หลักการค้นหา ดูจาก Noun ในโจทย์ หรือ หาสิ่งที่เป็น คน สั่ตว์ สิ่งของ ที่จับต้องได้
 
+device01 = Device("green", "desktop")
+device02 = Device("yellow", "mobile")
+
 pc01 = Computer("black", "dell", "380", {
-                      "cpu": "core 2 duo", "ram": 16}, 5000)
+    "cpu": "core 2 duo", "ram": 16}, 5000)
 pc02 = Computer("black", "dell", "390", {
-                      "cpu": "core 2 duo", "ram": 8}, 3000)
+    "cpu": "core 2 duo", "ram": 8}, 3000)
 pc03 = Computer("black", "dell", "2020", {
-                      "cpu": "i3 2200", "ram": 8}, 3500)
+    "cpu": "i3 2200", "ram": 8}, 3500)
 
 notebook01 = Notebook("black", "acer", "nitro", {
                       "cpu": "i3 2200", "ram": 8}, 3500)
@@ -120,6 +134,8 @@ benjamon = EmployeeService("6406043", "menjamon mendy", 22, True)
 dep01 = Department("1001", "markting")
 dep02 = Department("2002", "research and development")
 
+print(device01.type)
+device01.type = "headphone"
 
 print(pc01.spec)
 pc01.color = "white"
