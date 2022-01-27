@@ -1,3 +1,7 @@
+class Device:
+    pass
+
+
 class Computer:
     pass
 
@@ -24,6 +28,13 @@ class EmployeeService:
 
 class Department:
     pass
+
+
+class Device:
+
+    def __init__(self, color, type):
+        self.color = color
+        self.type = type
 
 
 class Computer:
@@ -91,12 +102,15 @@ class Department:
 
 # หลักการค้นหา ดูจาก Noun ในโจทย์ หรือ หาสิ่งที่เป็น คน สั่ตว์ สิ่งของ ที่จับต้องได้
 
-dell_00001 = Computer("black", "dell", "380", {
-                      "cpu": "core 2 duo", "ram": 16}, 5000)
-dell_00002 = Computer("black", "dell", "390", {
-                      "cpu": "core 2 duo", "ram": 8}, 3000)
-dell_00003 = Computer("black", "dell", "2020", {
-                      "cpu": "i3 2200", "ram": 8}, 3500)
+device01 = Device("green", "desktop")
+device02 = Device("yellow", "mobile")
+
+pc01 = Computer("black", "dell", "380", {
+    "cpu": "core 2 duo", "ram": 16}, 5000)
+pc02 = Computer("black", "dell", "390", {
+    "cpu": "core 2 duo", "ram": 8}, 3000)
+pc03 = Computer("black", "dell", "2020", {
+    "cpu": "i3 2200", "ram": 8}, 3500)
 
 notebook01 = Notebook("black", "acer", "nitro", {
                       "cpu": "i3 2200", "ram": 8}, 3500)
@@ -111,8 +125,8 @@ printer02 = Printer("green", "canon", "l280", {
 monitor01 = Monitor("white", "lg", "380", "32 inch", "rgb 128bit")
 monitor02 = Monitor("white", "sumsung", "380", "32 inch", "144 hz")
 
-BenTen = Employee("6406041", "Ben Tennison", 30)
-Gwen = Employee("6406042", "Gwen Tennison", 31)
+ben_ten = Employee("6406041", "Ben Tennison", 30)
+gwen = Employee("6406042", "Gwen Tennison", 31)
 
 benjamin = EmployeeService("6406044", "benjamin mondy", 20, True)
 benjamon = EmployeeService("6406043", "menjamon mendy", 22, True)
@@ -120,9 +134,11 @@ benjamon = EmployeeService("6406043", "menjamon mendy", 22, True)
 dep01 = Department("1001", "markting")
 dep02 = Department("2002", "research and development")
 
+print(device01.type)
+device01.type = "headphone"
 
-print(dell_00001.spec)
-dell_00001.color = "white"
+print(pc01.spec)
+pc01.color = "white"
 
 print(notebook01.spec)
 notebook01.price = 5000
@@ -133,10 +149,10 @@ printer02.price = 6000
 print(monitor02.spec)
 monitor02.serie = "2000"
 
-print(BenTen.name)
-BenTen.id = "6406050"
+print(ben_ten.name)
+ben_ten.id = "6406050"
 
-print(benjamon.name)
+print(benjamon.is_free)
 benjamon.is_free = False
 
 print(dep01.department_id)
