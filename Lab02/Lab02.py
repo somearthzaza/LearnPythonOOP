@@ -16,6 +16,11 @@ class Catalog:
         self._books.append(Book(isbn, authors, title, subject, dds_number))
         return self
 
+    def delete_book(self, search_key):
+        for index, book in enumerate(self._books):
+            if search_key == book.isbn:
+                self._books.pop(index)
+
 
 class Author:
 
