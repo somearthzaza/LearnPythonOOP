@@ -1,3 +1,6 @@
+from unicodedata import name
+
+
 class Donut:
     def __init__(self, flavor, toppings, filling, size):
         self.flavor = flavor
@@ -17,3 +20,13 @@ class Cake:
         self.flavor = flavor
         self.price = price
         self.quality = quality
+
+class Dog:
+
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        print("Bark.. Brak!");
+
