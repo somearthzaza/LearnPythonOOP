@@ -5,16 +5,20 @@ class Menu:
     def __init__(self):
         self._notebook = Notebook()
 
-    def show_note(self):
-        for note in self._notebook.notes:
-            print(note.id, note.memo, "[ ", end="")
-            for tag in note.tags:
-                print(tag, end=", ")
-            print("]")
-        print("="*20, "\n")
+    def show_note(self, note_id):
+        note_obj = self._notebook.search(str(note_id))
+        if note_obj != None:
+            print("="*20)
+            print(f"id: {note_obj.id}")
+            print(f"memo: {note_obj.memo}")
+            print(f"tags: {', '.join(note_obj.tags)}")
+            print("="*20)
+        else:
+            print("not found")
 
-    def search_note(self , key_fliter):
-        return self._notebook.search(key_fliter)
+    def search_note(self, key_fliter):
+        note_obj = self._notebook.search(key_fliter)
+        return note_obj.id
 
     def add_note(self, memo, tags):
         self._notebook.new_note(memo, tags)
@@ -24,7 +28,7 @@ class Menu:
         self._notebook.modify_memo(note_id, memo)
 
     def modify_tag(self, note_id, tags):
-        self._notebook.modify_tags(note_id , tags)
+        self._notebook.modify_tags(note_id, tags)
 
 
 class Notebook:
@@ -32,14 +36,12 @@ class Notebook:
         self._notes = []
 
     def search(self, key_filter):
-        result_list = []
         if isinstance(key_filter, str):
             for note in self._notes:
                 if note.match(key_filter):
-                    result_list.append(note)
+                    return note
         else:
             print('string only')
-        return result_list
 
     def new_note(self, memo, tags):
         if isinstance(memo, str) and isinstance(tags, list):
@@ -58,6 +60,7 @@ class Notebook:
             if note.id == note_id:
                 note.tags = tags
                 break
+
     @property
     def notes(self):
         return self._notes
@@ -110,14 +113,20 @@ class Note:
             for tag in self._tags:
                 if tag == search_filter:
                     return True
+            if search_filter == str(self._id):
+                return True
             return False
+        else:
+            print("str only")
+
 
 menu01 = Menu()
 
-menu01.add_note("hello world", ["python", "oop"]).add_note("goodbye", ["programming"]).add_note("hello 3", ["python", "oop"])
-menu01.show_note()
-#print(menu01.search_note("oop")[0].memo)
-menu01.modify_note(1, "Hello from hell")
-menu01.show_note()
-menu01.modify_tag(1, ["programming"])
-menu01.show_note()
+menu01.add_note("hello world", ["python", "oop"]).add_note(
+    "goodbye", ["programming"]).add_note("hello 3", ["python", "oop"])
+found_note = menu01.search_note("hello")
+menu01.show_note(found_note)
+menu01.modify_note(found_note, "hello from kmitl")
+menu01.modify_tag(found_note, ["oop", "UML"])
+menu01.show_note(found_note)
+menu01.show_note(menu01.search_note("programming"))
