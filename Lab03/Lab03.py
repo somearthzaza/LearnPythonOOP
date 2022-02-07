@@ -16,8 +16,8 @@ class Menu:
         else:
             print("not found")
 
-    def search_note(self, key_fliter):
-        note_obj = self._notebook.search(key_fliter)
+    def search_note(self, key_filter):
+        note_obj = self._notebook.search(key_filter)
         return note_obj.id
 
     def add_note(self, memo, tags):
