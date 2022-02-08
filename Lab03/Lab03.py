@@ -18,7 +18,7 @@ class Menu:
 
     def search_note(self, key_filter):
         note_obj = self._notebook.search(key_filter)
-        return note_obj.id
+        print(f"note id = {note_obj.id}")
 
     def add_note(self, memo, tags):
         self._notebook.new_note(memo, tags)
@@ -124,9 +124,11 @@ menu01 = Menu()
 
 menu01.add_note("hello world", ["python", "oop"]).add_note(
     "goodbye", ["programming"]).add_note("hello 3", ["python", "oop"])
-found_note = menu01.search_note("hello")
-menu01.show_note(found_note)
-menu01.modify_note(found_note, "hello from kmitl")
-menu01.modify_tag(found_note, ["oop", "UML"])
-menu01.show_note(found_note)
-menu01.show_note(menu01.search_note("programming"))
+menu01.search_note("hello")
+menu01.show_note(1)
+menu01.modify_note(1, "hello from kmitl")
+menu01.modify_tag(1, ["oop", "UML"])
+menu01.show_note(1)
+menu01.search_note("programming")
+menu01.show_note(2)
+
