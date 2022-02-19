@@ -257,8 +257,11 @@ class Agent:
         }
 
         property_class = property_map.get((property_type, purchase_type))
-        property_input = property_class.prompt_init()
-        self._property_list.append(property_class(**property_input))
+        if property_class:            
+            property_input = property_class.prompt_init()
+            self._property_list.append(property_class(**property_input))
+        else:
+            print("Please provide correct args!")
 
 
 # test
