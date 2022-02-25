@@ -1,5 +1,3 @@
-from xmlrpc.client import boolean
-
 
 is_have_balcony = input("Does have balcony(Y/n): ").lower()
 is_have_laundry = input("Does have laundry(Y/n): ").lower()
