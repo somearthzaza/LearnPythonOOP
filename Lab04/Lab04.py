@@ -83,6 +83,17 @@ class HousePurchase(House, Purchase):
         final_dict.update(Purchase.prompt_init())
         return final_dict
 
+
+class Agent:
+    def __init__(self) -> None:
+        self.property_list = []
+
+    def list_porperty(self):
+        pass
+
+    def add_property(self):
+        pass
+
 # b = House.prompt_init()
 # myhouse = House(b["square_feet"], b["num_bedroom"],
 #                 b["num_bathroom"], b["garage"], b["fenced_yard"])
@@ -90,6 +101,6 @@ class HousePurchase(House, Purchase):
 
 
 z = HousePurchase.prompt_init()
-house1 = HousePurchase()
+
 print(z)
 # print(b)
